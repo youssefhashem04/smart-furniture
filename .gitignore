@@ -1,0 +1,18 @@
+# Django
+sf_backend_build/venv/
+sf_backend_build/__pycache__/
+sf_backend_build/db.sqlite3
+
+# Python
+*.pyc
+
+# React
+smart-furniture-pro/node_modules/
+smart-furniture-pro/dist/
+smart-furniture-pro/build/
+
+# Env
+.env
+
+# VS Code
+.vscode/
