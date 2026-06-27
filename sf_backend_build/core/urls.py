@@ -9,21 +9,31 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
 )
 
+from django.http import JsonResponse
+
+# 🟢 Root endpoint
+def home(request):
+    return JsonResponse({"status": "ok"})
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # 🟢 Home page
+    path("", home),
 
-    # APIS
-    path('api/users/', include('users.urls')),
-    path('api/products/', include('products.urls')),
-    path('api/orders/', include('orders.urls')),
-    path('api/chat/', include('chat.urls')),
+    # Admin
+    path("admin/", admin.site.urls),
 
-    # AUTH JWT
-    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    # APIs
+    path("api/users/", include("users.urls")),
+    path("api/products/", include("products.urls")),
+    path("api/orders/", include("orders.urls")),
+    path("api/chat/", include("chat.urls")),
+
+    # JWT Auth
+    path("api/token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
+    path("api/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
 ]
 
-# 🚀 MEDIA FILES FIX (IMPORTANT FOR IMAGES)
+# 🚀 Media files (development only)
 if settings.DEBUG:
     urlpatterns += static(
         settings.MEDIA_URL,
