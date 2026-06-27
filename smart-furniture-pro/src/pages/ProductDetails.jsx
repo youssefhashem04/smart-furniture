@@ -28,7 +28,7 @@ function ProductDetails() {
   });
 
   useEffect(() => {
-    fetch(`http://localhost:8000/api/products/${id}/`)
+    fetch(`https://smart-furniture-production.up.railway.app/api/products/${id}/`)
       .then((res) => res.json())
       .then((data) => {
         setProduct(data);

@@ -11,7 +11,7 @@ function Products() {
   const [sortBy, setSortBy] = useState("default");
 
   useEffect(() => {
-    fetch("http://localhost:8000/api/products/")
+    fetch("https://smart-furniture-production.up.railway.app/api/products/")
       .then((res) => res.json())
       .then((data) => {
         setAllProducts(Array.isArray(data) ? data : []);
